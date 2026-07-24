@@ -1,0 +1,4 @@
+interface:
+  display_name: "DDN Lustre Client"
+  short_description: "Install DDN Lustre client packages and configure o2ib."
+  default_prompt: "Use $ddn-lustre-client to install DDN Lustre client packages, configure o2ib LNet, and verify mounting."
