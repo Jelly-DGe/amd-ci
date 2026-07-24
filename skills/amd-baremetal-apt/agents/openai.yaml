@@ -1,0 +1,4 @@
+interface:
+  display_name: "AMD Bare-Metal APT"
+  short_description: "Install and verify AMDGPU and ROCm over SSH."
+  default_prompt: "Install or verify the validated AMDGPU and ROCm APT baseline on a bare-metal Ubuntu server."
