@@ -82,6 +82,30 @@ rocminfo
 
 预期 `modinfo amdgpu` 的路径含有 `updates/dkms/amdgpu.ko`，并且 `amd-smi` 能列出所有 PCIe GPU。
 
+## 批量裸机本地安装
+
+把 [`scripts/install_amdgpu_apt_local.sh`](scripts/install_amdgpu_apt_local.sh) 放到每台刚安装好的 Ubuntu 22.04 裸机执行。它会先检查 AMD PCIe 卡是否在位，再安装驱动、固件和可选的 ROCm；无卡、非 Ubuntu 22.04、或已有不同 APT 驱动时会停止。
+
+```bash
+chmod +x install_amdgpu_apt_local.sh
+sudo ./install_amdgpu_apt_local.sh --with-rocm --yes
+sudo reboot
+```
+
+仅装内核驱动和固件，不装 ROCm：
+
+```bash
+sudo ./install_amdgpu_apt_local.sh --yes
+```
+
+已有不同 APT 驱动时，脚本默认拒绝覆盖。确认需要统一替换版本时才使用：
+
+```bash
+sudo ./install_amdgpu_apt_local.sh --with-rocm --replace-driver --yes
+```
+
+该脚本适用于全新系统。若机器已有 Runfile ROCm，请先按照下文的混装说明卸载其用户态，再执行。
+
 ## 远程交互脚本
 
 在一台 Linux 跳板机或管理机上运行：
