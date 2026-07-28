@@ -1,5 +1,7 @@
 # Ubuntu 22.04 AMD Instinct APT Baseline
 
+面向直接执行的中文操作说明见 [../README.md](../README.md)。
+
 Validated reference configuration:
 
 ```text
